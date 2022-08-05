@@ -1,0 +1,11 @@
+{
+  "plugins": ["testing-library", "jest-dom"], // 플러그인 추가할 때
+  "extends": [
+    // 플러그인을 추가한 후에 규칙을 정해줘야 사용가능, 사용하고자 하는 규칙 설정
+    "react-app",
+    "react-app/jest",
+    "plugin:testing-library/react",
+    "plugin:jest-dom/recommended"
+  ]
+  //규칙 변경하고자 할 때는 rule항목 추가
+}
