@@ -1,23 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useState } from "react";
 
 function App() {
+  const [counter, setCounter] = useState(0);
+  const [desiabled, setDesiabled] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div className="container">
+      <div data-testid="counter" className="counter">
+        {counter}
+      </div>
+      <div>
+        <button
+          data-testid="minus-button"
+          onClick={() => setCounter((count) => count - 1)}
+          disabled={desiabled}
         >
-          Learn React
-        </a>
-      </header>
+          -
+        </button>
+        <button
+          data-testid="plus-button"
+          onClick={() => setCounter((count) => count + 1)}
+          disabled={desiabled}
+        >
+          +
+        </button>
+      </div>
+      <div>
+        <button
+          data-testid="on/off-button"
+          style={{ backgroundColor: "blue" }}
+          onClick={() => setDesiabled((prev) => !prev)}
+        >
+          on/off
+        </button>
+      </div>
     </div>
   );
 }
